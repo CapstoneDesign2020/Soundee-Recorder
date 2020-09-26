@@ -84,7 +84,7 @@ if __name__ == "__main__":
     print(f.renderText('               * Soundee *\n                * Recoder *'))
     print(f.renderText('------------------'))
     LOGIN()
-    while True:
+    while True: 
         audio_preprocess.audio_preprocessing(audio_record.record("test"),"test")
         # upload_file(image파일 주소, 저장될 파일 이름)
         # buckets.upload_file(file_path, 'mcpro.png')
