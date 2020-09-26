@@ -90,7 +90,7 @@ if __name__ == "__main__":
         # buckets.upload_file(file_path, 'mcpro.png')
 
         with open(file_path, 'rb') as data:
-            buckets.upload_file(data.name, 'test.png')
+            buckets.upload_file(data.name, key_name)
         # request
         response = requests.request("POST", url, headers=headers, data = payload)
         current_sound_class = response.text
