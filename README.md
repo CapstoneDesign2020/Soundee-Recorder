@@ -32,6 +32,9 @@ Soundee 어플리케이션의 다양한 실내 음향 수집을 위해 무지향
 
 Soundee Recorder와 어플리케이션 각각 5초 단위로 데이터 삽입과 조회가 이루어지기 때문에 실시간으로 발생하는 소리 정보를 얻어낼 수 있다.
 
+
 ## 📚 Stack
-* Python - PyAudio, Lisrosa, pyfiglet, matplotlib
-* AWS - RDS, Lambda, API Gateway, Sagemaker Endpoint
+#### Python 
+PyAudio, Lisrosa, pyfiglet, matplotlib
+#### AWS 
+RDS, S3, EC2, Lambda, API Gateway, Sagemaker Endpoint
