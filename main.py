@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*- 
 import audio_preprocess
 import audio_record
@@ -81,20 +82,24 @@ if __name__ == "__main__":
     f = Figlet(font='small')
     print(f.renderText('------------------'))
     print(f.renderText('           Hello-!  This is '))
-    print(f.renderText('               * Soundee *\n                * Recoder *'))
+    print(f.renderText('               * Soundee *\n                * Recorder *'))
     print(f.renderText('------------------'))
     LOGIN()
-    while True: 
+    while True:
         audio_preprocess.audio_preprocessing(audio_record.record("test"),"test")
         # upload_file(image파일 주소, 저장될 파일 이름)
         # buckets.upload_file(file_path, 'mcpro.png')
-
+        # temp = getpass.getpass(" ")
         with open(file_path, 'rb') as data:
             buckets.upload_file(data.name, key_name)
+        
         # request
         response = requests.request("POST", url, headers=headers, data = payload)
+
         current_sound_class = response.text
-        print("This is",response.text,"sounde~!")
+        if current_sound_class == 'no_class':
+            print("Not in class.")
+        print("This is",current_sound_class,"sound~!")
         # insert DB
         curs = conn.cursor()
         sql = f"insert into sound(class,eventdate,sound_userIdx) values({current_sound_class},NOW(),{userIdx});"
