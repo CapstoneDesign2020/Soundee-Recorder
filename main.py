@@ -87,9 +87,7 @@ if __name__ == "__main__":
     LOGIN()
     while True:
         audio_preprocess.audio_preprocessing(audio_record.record("test"),"test")
-        # upload_file(image파일 주소, 저장될 파일 이름)
-        # buckets.upload_file(file_path, 'mcpro.png')
-        # temp = getpass.getpass(" ")
+
         with open(file_path, 'rb') as data:
             buckets.upload_file(data.name, key_name)
         

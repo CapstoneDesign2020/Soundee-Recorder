@@ -34,7 +34,7 @@ def audio_preprocessing(data,test):
                                         center=True, pad_mode='reflect', fmin=0.0)
     DB = librosa.amplitude_to_db(Si, ref=np.max)
     
-    librosa.display.specshow(DB.T, sr=sr, x_axis='linear', y_axis='time',hop_length=hop_length)
+    librosa.display.specshow(DB, sr=sr, x_axis='linear', y_axis='time',hop_length=hop_length)
     plt.axis('off')
 
 
@@ -52,7 +52,12 @@ def audio_preprocessing(data,test):
     # resize
     img_size = (256, 256)
     image = Image.open(f'{img_path}')
+    
+    
     image = image.resize(img_size)
+    image = image.transpose(Image.FLIP_LEFT_RIGHT)
+    image = image.rotate(-90)
+    
     image.save(f'{img_path}')
     # index+=1
     print("complete!")    
